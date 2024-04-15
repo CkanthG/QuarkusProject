@@ -1,3 +1,7 @@
-insert into Person(id, name, email, phoneNumber, city) values (1, 'sreekanth', 'sreekanthgaddoju@gmail.com','9087654321','Berlin');
-insert into Person(id, name, email, phoneNumber, city) values (2, 'sowmya', 'sowmyagaddoju@gmail.com','9087654312','Berlin');
-insert into Person(id, name, email, phoneNumber, city) values (3, 'devansh', 'devanshgaddoju@gmail.com','9087654123','Berlin');
+CREATE TABLE IF NOT EXISTS Person(
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(255) NOT NULL,
+                        email VARCHAR(255),
+                        phoneNumber VARCHAR(20),
+                        city VARCHAR(100)
+);

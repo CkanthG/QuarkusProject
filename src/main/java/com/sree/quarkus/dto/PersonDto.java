@@ -1,30 +1,18 @@
-package com.sree.quarkus.entities;
+package com.sree.quarkus.dto;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-
+import java.util.Objects;
 
 /**
- * This Entity class is used for save or update the person's info.
+ * This dto class is used for send object while save or update the person's info.
  */
-@Entity
-public class Person extends PanacheEntity {
-
+public class PersonDto {
     private Long id;
     private String name;
     private String email;
     private String phoneNumber;
     private String city;
 
-    public Person() {
-    }
-
-    public Person(Long id, String name, String email, String phoneNumber, String city) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.city = city;
+    public PersonDto() {
     }
 
     public Long getId() {
@@ -65,5 +53,18 @@ public class Person extends PanacheEntity {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        PersonDto personDto = (PersonDto) object;
+        return Objects.equals(id, personDto.id) && Objects.equals(name, personDto.name) && Objects.equals(email, personDto.email) && Objects.equals(phoneNumber, personDto.phoneNumber) && Objects.equals(city, personDto.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email, phoneNumber, city);
     }
 }
